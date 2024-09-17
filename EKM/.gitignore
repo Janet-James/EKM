@@ -1,0 +1,10 @@
+# Created by .ignore support plugin (hsz.mobi)
+#.gitignore
+**/.idea/*
+.idea/EKM.iml
+.idea/misc.xml
+.idea/vcs.xml
+.idea/modules.xml
+.idea/workspace.xml
+EKM/__pycache__/
+backend/migrations/

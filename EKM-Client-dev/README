@@ -1,0 +1,125 @@
+######## EKM Client ########
+
+
+
+###### Installation instructions ######
+
+1. Build the client by the following command
+
+python setup.py build
+
+2. Install the client in your system or in virtual environment
+
+python setup.py install
+
+
+
+###### Usage instructions ######
+
+After installation
+
+
+#### Token Generation ####
+
+Generate token for your application and copy the token
+
+ekmtoken application_name
+
+E.g: 
+
+ekmtoken SAAAS
+
+Sample output : 
+
+Application has been registered and your token is
+ad48bd691bd83dvdf02e09fi93715f04
+
+
+#### Functional Implementation ####
+
+Import the function and pass arguments as follows:
+
+    from ekm.client import ekm_process
+
+    ekm_token=your_application_token
+    type = string (or) file
+    value = your_plain_string (or) encrypted_string (or) full_path_of_your_file_to_be_encrypted (or) filename of the file to be decrypted prepend with the path to save the file
+    process = encrypt (or) decrypt
+    result=ekm_process(ekm_token,type,value,process)
+
+E.g:
+
+Single value:
+
+String Encryption:
+
+    from ekm.client import ekm_process
+
+    ekm_token='ad48bd691bd83dvdf02e09fi93715f04'
+    type='string'
+    value = 'Hello'
+    process='encrypt'
+    result=ekm_process(ekm_token,type,value,process)
+
+String Decryption:
+    
+    from ekm.client import ekm_process
+
+    ekm_token='ad48bd691bd83dvdf02e09fi93715f04'
+    type='string'
+    value='JMBa7+tqdniv1rb6i1UtUatWRchv4KG28QfQHDvCien+7GRTMy8T7YObBur7WkAJg/DIe2dWdFAyv/zXF9F6BdhERb' \
+          'q1aSGejvN5ZJMc9w2dQPUj/q1OzO3MELsGCC2wgLCA6XH8CiLNJ5DKFGYkT4dBloaKcHxsk3iZG8S8tj4='
+    process = 'decrypt'
+    result = ekm_process(ekm_token, type, value, process)
+
+Multiple Values:
+
+String Encryption:
+
+from ekm.client import ekm_process
+
+    ekm_token='ad48bd691bd83dvdf02e09fi93715f04'
+    type='string'
+    value = {'key1':'Hello', 'key2':'world', key3:'1,Tidel Park,CBE'}
+    process='encrypt'
+    result=ekm_process(ekm_token,type,value,process)
+
+String Decryption:
+    
+    from ekm.client import ekm_process
+
+    ekm_token='ad48bd691bd83dvdf02e09fi93715f04'
+    type='string'
+    value=['JMBa7+tqdniv1rb6i1UtUatWRchv4KG28QfQHDvCien+7GRTMy8T7YObBur7WkAJg/DIe2dWdFAyv/	zXF9F6BdhERb','q1aSGejvN5ZJMc9w2dQPUj1OzO3MELsGCC2wgLCA6XH8CiLNJ5DKFGYkT4dBloaKcHxsk3iZG8S8tj4=','tqdniv1rb6i1UtUatWRchv4KG28QfQHDvCien']
+    process = 'decrypt'
+    result = ekm_process(ekm_token, type, value, process)
+
+
+File Encryption:
+
+    from ekm.client import ekm_process
+
+    ekm_token='ad48bd691bd83dvdf02e09fi93715f04'
+    type = 'file'
+    value = '/home/next/test.txt'
+    process = 'encrypt'
+    result = ekm_process(ekm_token, type, value, process)
+
+File Decryption:
+
+    from ekm.client import ekm_process
+
+    ekm_token='ad48bd691bd83dvdf02e09fi93715f04'
+    type = 'file'
+    path_to_save = '/home/next/Documents/'
+    filename = 'test.txt'
+    value = path_to_save + filename
+    process = 'decrypt'
+    result = ekm_process(ekm_token, type, value, process)
+
+
+
+
+
+
+

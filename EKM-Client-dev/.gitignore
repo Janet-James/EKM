@@ -1,0 +1,6 @@
+# git ignore files
+.idea/
+build/
+dist/
+EKM_Client.egg-info/
+
